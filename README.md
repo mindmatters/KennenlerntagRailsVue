@@ -8,6 +8,10 @@ Es sollte vielleicht erwähnt werden, dass hier gewisse Sicherheitsgrundsätze i
 
 ## Entwicklungsumgebung
 
+Vorraussetzungen ohne Docker:
+* Ruby (for version see `.ruby-version` in `/backend` )
+* node  (for version see `/frontend/Dockefile`)
+* Postgres (hier muss vermutlich die `backend/config/database.yml` angepasst werden)
 
 
 ### Enwicklung mit Docker Compose
@@ -18,6 +22,9 @@ Vorraussetzungen:
 
 ```
 docker-compose up
-docker-compose run web rake db:create
-docker-compose run web rake db:create ENV=development
+docker-compose run kennenlern-backend rake db:create
+docker-compose run kennenlern-backend rake db:create ENV=development
 ```
+
+Frontend: http://localhost:8080/
+Backend: http://localhost:3000/

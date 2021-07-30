@@ -1,12 +1,13 @@
 version: "3.9"
 services:
-  db:
+  kennenlern-db:
     image: postgres
     volumes:
       - ./backend/tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
-  web:
+
+  kennenlern-backend:
     build: ./backend
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -14,4 +15,15 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - kennenlern-db
+
+  kennenlern-frontend:
+    build: ./frontend
+    command: yarn serve
+    volumes:
+      - ./frontend/:/app # continuously sync local folder to container
+      - /usr/src/app/node_modules # do not sync node_modules folder
+    ports:
+      - "8080:8080" # Forward the exposed port 4200 on the container to port 4200 on the host machine
+    depends_on:
+      - kennenlern-backend
