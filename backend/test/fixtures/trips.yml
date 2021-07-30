@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_lat: 9.99
+  start_lng: 9.99
+  end_lng: 9.99
+  end_lat: 9.99
+  start_date: 2021-07-30
+  return_date: 2021-07-30
+
+two:
+  start_lat: 9.99
+  start_lng: 9.99
+  end_lng: 9.99
+  end_lat: 9.99
+  start_date: 2021-07-30
+  return_date: 2021-07-30
